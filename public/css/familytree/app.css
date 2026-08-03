@@ -1,0 +1,190 @@
+:root {
+    --ft-primary: #1a5276;
+    --ft-gold: #d4ac0d;
+    --ft-green: #1e8449;
+    --ft-danger: #c0392b;
+    --ft-female: #8e44ad;
+    --ft-bg: #f4f6f8;
+    --ft-border: #d5d8dc;
+    --ft-card: #ffffff;
+    --ft-shadow: 0 2px 12px rgba(0,0,0,.07);
+}
+
+/* ── Shell ─────────────────────────────────────────────────────────────────── */
+.ft-shell { background: var(--ft-bg); min-height: 100vh; }
+
+/* ── Sidebar Nav ────────────────────────────────────────────────────────────── */
+.ft-subnav .nav-link {
+    color: #374151;
+    padding: .55rem 1rem;
+    border-radius: .5rem;
+    font-size: .9rem;
+    transition: background .15s, color .15s;
+}
+.ft-subnav .nav-link:hover  { background: rgba(26,82,118,.09); color: var(--ft-primary); }
+.ft-subnav .nav-link.active { background: var(--ft-primary); color: #fff; }
+.ft-subnav .nav-section {
+    font-size: .68rem; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: #9ca3af; padding: .5rem 1rem .2rem;
+}
+
+/* ── Stat Cards ─────────────────────────────────────────────────────────────── */
+.ft-stat-card {
+    background: var(--ft-card);
+    border: 1px solid var(--ft-border);
+    border-radius: 14px;
+    box-shadow: var(--ft-shadow);
+}
+.ft-stat-card .icon-wrap {
+    width: 46px; height: 46px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+}
+
+/* ── Member Photo ───────────────────────────────────────────────────────────── */
+.ft-avatar {
+    border-radius: 50%; object-fit: cover;
+    border: 3px solid var(--ft-border);
+}
+.ft-avatar-male   { border-color: var(--ft-primary); }
+.ft-avatar-female { border-color: var(--ft-female); }
+
+/* ── Gender Badges ──────────────────────────────────────────────────────────── */
+.ft-badge-male    { background: rgba(26,82,118,.1);  color: var(--ft-primary); border-radius: 6px; padding: 2px 8px; font-size: .8rem; }
+.ft-badge-female  { background: rgba(142,68,173,.1); color: var(--ft-female);  border-radius: 6px; padding: 2px 8px; font-size: .8rem; }
+.ft-badge-living  { background: #d5f5e3; color: #1e8449; border-radius: 6px; padding: 2px 8px; font-size: .8rem; }
+.ft-badge-deceased{ background: #f2f3f4; color: #566573; border-radius: 6px; padding: 2px 8px; font-size: .8rem; }
+
+/* ── Mobile FAB ─────────────────────────────────────────────────────────────── */
+.ft-fab {
+    position: fixed; bottom: 1.5rem; inset-inline-end: 1.5rem;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--ft-primary); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 8px 24px rgba(26,82,118,.4);
+    z-index: 1040; text-decoration: none;
+}
+.ft-fab:hover { background: #154360; color: #fff; }
+@media (min-width: 992px) { .ft-fab { display: none; } }
+
+/* ── Responsive Table ───────────────────────────────────────────────────────── */
+@media (max-width: 767.98px) {
+    .ft-table thead { display: none; }
+    .ft-table, .ft-table tbody, .ft-table tr, .ft-table td { display: block; width: 100%; }
+    .ft-table tr {
+        margin-bottom: .75rem; border: 1px solid var(--ft-border);
+        border-radius: 12px; padding: .75rem .9rem; background: #fff;
+    }
+    .ft-table tr.ft-row-empty { border: none; padding: 0; }
+    .ft-table td {
+        display: flex; justify-content: space-between;
+        align-items: center; padding: .4rem 0;
+        border: none !important; text-align: end;
+    }
+    .ft-table td::before {
+        content: attr(data-label);
+        font-weight: 600; color: #6b7280; font-size: .8rem;
+        text-align: start; padding-inline-end: .75rem; flex-shrink: 0;
+    }
+    .ft-table td.ft-cell-actions {
+        justify-content: flex-end; gap: .35rem;
+        padding-top: .6rem; border-top: 1px solid var(--ft-border) !important;
+        margin-top: .4rem;
+    }
+    .ft-table td.ft-cell-actions::before { display: none; }
+    .ft-table td.ft-cell-name { font-weight: 600; }
+}
+
+/* ── Tree Container ─────────────────────────────────────────────────────────── */
+#ft-tree-container {
+    width: 100%; min-height: 500px;
+    overflow: auto; position: relative;
+    background: #f8f9fa;
+    border: 1px solid var(--ft-border);
+    border-radius: 14px;
+}
+
+/* ── Treant Node Styles ─────────────────────────────────────────────────────── */
+.ft-member-node {
+    background: #fff;
+    border: 2px solid var(--ft-primary);
+    border-radius: 12px;
+    padding: 10px 12px;
+    min-width: 130px; max-width: 160px;
+    text-align: center;
+    cursor: pointer;
+    transition: box-shadow .2s, transform .2s;
+    box-shadow: 0 2px 8px rgba(26,82,118,.12);
+    font-size: .82rem;
+}
+.ft-member-node:hover {
+    box-shadow: 0 6px 20px rgba(26,82,118,.2);
+    transform: translateY(-2px);
+}
+.ft-member-node.ft-node-female { border-color: var(--ft-female); }
+.ft-member-node.ft-node-deceased { opacity: .65; border-style: dashed; }
+.ft-member-node.ft-node-highlight { border-color: var(--ft-gold); border-width: 3px; }
+.ft-member-node img {
+    width: 52px; height: 52px;
+    border-radius: 50%; object-fit: cover;
+    border: 2px solid var(--ft-border);
+    margin-bottom: 6px;
+}
+.ft-node-name { font-weight: 700; font-size: .85rem; color: #1a252f; line-height: 1.2; }
+.ft-node-father { font-size: .72rem; color: #7f8c8d; margin-top: 2px; }
+.ft-node-age { font-size: .72rem; color: #95a5a6; }
+
+.ft-couple-node {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    min-width: 0 !important;
+}
+
+/* ── Hover Card ─────────────────────────────────────────────────────────────── */
+#ft-hover-card {
+    position: fixed;
+    z-index: 1060;
+    width: 260px;
+    background: #fff;
+    border: 1px solid var(--ft-border);
+    border-radius: 14px;
+    box-shadow: 0 8px 32px rgba(0,0,0,.14);
+    display: none;
+    padding: 14px;
+    font-size: .85rem;
+}
+#ft-hover-card .ft-hc-name { font-weight: 700; font-size: 1rem; color: #fff; }
+#ft-hover-card .ft-hc-row { display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px solid #f0f0f0; }
+#ft-hover-card .ft-hc-label { color: #7f8c8d; }
+
+/* ── Timeline ───────────────────────────────────────────────────────────────── */
+.ft-timeline { position: relative; padding-left: 2rem; }
+.ft-timeline::before {
+    content: ''; position: absolute; left: .6rem; top: 0; bottom: 0;
+    width: 2px; background: var(--ft-border);
+}
+.ft-timeline-item { position: relative; margin-bottom: 1.25rem; }
+.ft-timeline-item::before {
+    content: ''; position: absolute; left: -1.6rem; top: .3rem;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--ft-primary); border: 2px solid #fff;
+    box-shadow: 0 0 0 2px var(--ft-primary);
+}
+
+/* ── Birthday Card ──────────────────────────────────────────────────────────── */
+.ft-birthday-card {
+    background: linear-gradient(135deg, #fff8e1, #fffde7);
+    border: 1px solid #f9e79f;
+    border-radius: 12px;
+}
+
+/* ── Profile Page ───────────────────────────────────────────────────────────── */
+.ft-profile-hero {
+    background: linear-gradient(135deg, var(--ft-primary), #154360);
+    color: #fff; border-radius: 16px; padding: 2rem;
+}
+.ft-profile-hero .ft-avatar { width: 90px; height: 90px; border-color: rgba(255,255,255,.5); }

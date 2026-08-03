@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'NotoNastaliqUrdu';
+    src: url('/fonts/NotoNastaliqUrdu-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'NotoNastaliqUrdu';
+    src: url('/fonts/NotoNastaliqUrdu-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-display: swap;
+}
+
+html[lang="ur"] body {
+    font-family: 'NotoNastaliqUrdu', 'Jameel Noori Nastaleeq', serif;
+    line-height: 2.1;
+}
+
+html[lang="ar"] body {
+    font-family: 'Noto Naskh Arabic', 'Tahoma', sans-serif;
+    line-height: 1.9;
+}
+
+html[dir="rtl"] {
+    text-align: right;
+}
+
+html[dir="rtl"] .navbar-nav {
+    padding-right: 0;
+}

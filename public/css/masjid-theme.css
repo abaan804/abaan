@@ -1,0 +1,126 @@
+:root {
+    --mj-primary: #1B6B45;
+    --mj-gold: #C9A84C;
+    --mj-danger: #DC2626;
+    --mj-warning: #D97706;
+    --mj-bg: #F6F8F5;
+    --mj-border: #D9E4D7;
+    --mj-card: #FFFFFF;
+}
+
+.masjid-shell { background-color: var(--mj-bg); min-height: 100vh; }
+
+.masjid-subnav .nav-link {
+    color: #374151;
+    padding: .6rem 1rem;
+    border-radius: .5rem;
+    font-size: .91rem;
+}
+.masjid-subnav .nav-link:hover { background: rgba(27,107,69,.08); color: var(--mj-primary); }
+.masjid-subnav .nav-link.active { background: var(--mj-primary); color: #fff; }
+.masjid-subnav .nav-section {
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #9CA3AF;
+    padding: .5rem 1rem .2rem;
+}
+
+.mj-stat-card {
+    background: var(--mj-card);
+    border: 1px solid var(--mj-border);
+    border-radius: 14px;
+}
+.mj-stat-card .icon-wrap {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.35rem;
+}
+
+.mj-badge-pending { background: #FEF3C7; color: #92400E; }
+.mj-badge-partial  { background: #DBEAFE; color: #1E40AF; }
+.mj-badge-paid     { background: #DCFCE7; color: #166534; }
+.mj-badge-overpaid { background: #F3E8FF; color: #6B21A8; }
+
+.mj-fab {
+    position: fixed;
+    bottom: 1.5rem;
+    inset-inline-end: 1.5rem;
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--mj-primary);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 10px 25px -5px rgba(27,107,69,.45);
+    z-index: 1040;
+    text-decoration: none;
+}
+.mj-fab:hover { background: #14543A; color: #fff; }
+@media (min-width: 992px) { .mj-fab { display: none; } }
+
+/* Responsive stacked table — reuses same pattern as ledger-theme */
+@media (max-width: 767.98px) {
+    .mj-responsive-table thead { display: none; }
+    .mj-responsive-table,
+    .mj-responsive-table tbody,
+    .mj-responsive-table tr,
+    .mj-responsive-table td { display: block; width: 100%; }
+    .mj-responsive-table tr {
+        margin-bottom: .75rem;
+        border: 1px solid var(--mj-border);
+        border-radius: 12px;
+        padding: .75rem .9rem;
+        background: #fff;
+    }
+    .mj-responsive-table tr.mj-row-empty { border: none; padding: 0; }
+    .mj-responsive-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: .4rem 0;
+        border: none !important;
+        text-align: end;
+    }
+    .mj-responsive-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #6B7280;
+        font-size: .8rem;
+        text-align: start;
+        padding-inline-end: .75rem;
+        flex-shrink: 0;
+    }
+    .mj-responsive-table td.mj-cell-actions {
+        justify-content: flex-end;
+        gap: .35rem;
+        padding-top: .6rem;
+        border-top: 1px solid var(--mj-border) !important;
+        margin-top: .4rem;
+    }
+    .mj-responsive-table td.mj-cell-actions::before { display: none; }
+    .mj-responsive-table td.mj-cell-name { font-weight: 600; }
+}
+
+/* Bismillah header on PDF */
+.mj-bismillah { text-align: center; font-size: 22px; color: var(--mj-primary); margin-bottom: 8px; }
+
+@media (prefers-reduced-motion: reduce) { .mj-fab { transition: none; } }
+
+/* Select2 inside Bootstrap 5 modals */
+.select2-container {
+    z-index: 9999 !important;
+}
+.modal .select2-container--bootstrap-5 .select2-selection {
+    border-color: #dee2e6;
+}
+.modal .select2-container--bootstrap-5.select2-container--open .select2-selection {
+    border-color: var(--mj-primary);
+    box-shadow: 0 0 0 .2rem rgba(27,107,69,.18);
+}
+.select2-container--bootstrap-5 .select2-selection--single {
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem 2.25rem .375rem .75rem;
+}
