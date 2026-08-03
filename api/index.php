@@ -1,15 +1,18 @@
 <?php
 
-require __DIR__ . '/../vendor/autoload.php';
+// require __DIR__ . '/../vendor/autoload.php';
 
-$app = require_once __DIR__ . '/../bootstrap/app.php';
+// $app = require_once __DIR__ . '/../bootstrap/app.php';
 
-$kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
+// $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
-$request = Illuminate\Http\Request::capture();
+// $request = Illuminate\Http\Request::capture();
 
-$response = $kernel->handle($request);
+// $response = $kernel->handle($request);
 
-$response->send();
+// $response->send();
 
-$kernel->terminate($request, $response);
+// $kernel->terminate($request, $response);
+ 
+
+echo "PHP FUNCTION IS WORKING";
